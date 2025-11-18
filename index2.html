@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FMIPA Untan - Fakultas Matematika dan Ilmu Pengetahuan Alam</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* HEADER & NAVIGATION */
+        header {
+            background: linear-gradient(135deg, #FFC107 0%, #FFD54F 100%);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            background-color: #2e0b3c;
+            color: white;
+            padding: 10px 0;
+            font-size: 0.9em;
+        }
+        
+        .header-top .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav {
+            padding: 15px 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #7B1FA2;
+            font-size: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5em;
+            color: #2e0b3c;
+        }
+        
+        .logo-text p {
+            font-size: 0.8em;
+            color: #2e0b3c;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: #2e0b3c;
+            font-weight: 600;
+            transition: color 0.3s;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+        
+        .nav-menu a:hover {
+            background-color: rgba(123, 31, 162, 0.1);
+            color: #2e0b3c;
+        }
+        
+        /* DROPDOWN MENU */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 5px;
+            top: 100%;
+            left: 0;
+            z-index: 1;
+            margin-top: 5px;
+        }
+        
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 20px;
+            display: block;
+            border-radius: 0;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #F3E5F5;
+            color: #2e0b3c;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #fff56f 0%, #9C27B0 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn-primary {
+            background-color: #FFC107;
+            color: #2e0b3c;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+        }
+        
+        .btn-primary:hover {
+            background-color: #FFD54F;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.6);
+        }
+        
+        /* SECTIONS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 20px;
+        }
+        
+        section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #6e5709;
+        }
+        
+        section p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 1.1em;
+            color: #544411;
+        }
+        
+        /* TENTANG SECTION */
+        #tentang {
+            background-color: #ffffff;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .about-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(123, 31, 162, 0.2);
+        }
+        
+        .about-card h3 {
+            color: #7B1FA2;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .about-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FFC107, #FFD54F);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2em;
+        }
+        
+        /* PROGRAM STUDI SECTION */
+        #prodi {
+            background: linear-gradient(135deg, #FFF9C4 0%, #FFF59D 100%);
+        }
+        
+        .prodi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .prodi-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #7B1FA2;
+            transition: all 0.3s;
+        }
+        
+        .prodi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(123, 31, 162, 0.3);
+            border-left-width: 8px;
+        }
+        
+        .prodi-card h3 {
+            color: #7B1FA2;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .prodi-card p {
+            text-align: left;
+            margin: 0;
+            font-size: 0.95em;
+        }
+        
+        /* KONTAK SECTION */
+        #kontak {
+            background: linear-gradient(135deg, #7B1FA2 0%, #9C27B0 100%);
+            color: white;
+        }
+        
+        #kontak h2 {
+            color: #FFC107;
+        }
+        
+        #kontak p {
+            color: white;
+        }
+        
+        .kontak-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .kontak-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 193, 7, 0.3);
+        }
+        
+        .kontak-icon {
+            width: 70px;
+            height: 70px;
+            background: #FFC107;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2em;
+        }
+        
+        .kontak-card h3 {
+            color: #FFC107;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .kontak-card a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        
+        .kontak-card a:hover {
+            color: #FFC107;
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: #4A148C;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        footer p {
+            margin: 5px 0;
+            color: white;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .hero h2 {
+                font-size: 2em;
+            }
+            
+            section h2 {
+                font-size: 2em;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER TOP BAR -->
+    <div class="header-top">
+        <div class="container">
+            <span>📧 fmipa@untan.ac.id | ☎️ (0561) 583865</span>
+            <span>Universitas Tanjungpura</span>
+        </div>
+    </div>
+    
+    <!-- NAVIGATION HEADER -->
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo-section">
+                    <div class="logo">🎓</div>
+                    <div class="logo">🔬</div>
+                    <div class="logo-text">
+                        <h1>FMIPA UNTAN</h1>
+                        <p>Universitas Tanjungpura</p>
+                    </div>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li><a href="#tentang">Tentang Fakultas</a></li>
+                    <li class="dropdown">
+                        <a href="#prodi">Program Studi ▼</a>
+                        <div class="dropdown-content">
+                            <a href="#prodi">Biologi</a>
+                            <a href="#prodi">Ilmu Kelautan</a>
+                            <a href="#prodi">Kimia</a>
+                            <a href="#prodi">Sistem Informasi</a>
+                            <a href="#prodi">Sistem Komputer</a>
+                            <a href="#prodi">Fisika</a>
+                            <a href="#prodi">Geofisika</a>
+                            <a href="#prodi">Matematika</a>
+                            <a href="#prodi">Statistika</a>
+                        </div>
+                    </li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h2>Selamat Datang di FMIPA Untan</h2>
+        <p>Fakultas Matematika dan Ilmu Pengetahuan Alam Universitas Tanjungpura - Membangun generasi unggul dalam sains dan teknologi untuk masa depan Indonesia</p>
+        <a href="#tentang" class="btn-primary">Jelajahi Lebih Lanjut</a>
+    </section>
+    
+    <!-- TENTANG FAKULTAS SECTION -->
+    <section id="tentang">
+        <div class="container">
+            <h2>Tentang Fakultas</h2>
+            <p>FMIPA Untan merupakan fakultas yang berdedikasi dalam mengembangkan ilmu pengetahuan alam dan matematika dengan fokus pada penelitian, pengajaran, dan pengabdian masyarakat.</p>
+            
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-icon">🎯</div>
+                    <h3>Visi</h3>
+                    <p>Menjadi fakultas unggul dalam pengembangan sains dan teknologi yang berwawasan lingkungan dan berstandar internasional.</p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="about-icon">🚀</div>
+                    <h3>Misi</h3>
+                    <p>Menyelenggarakan pendidikan, penelitian, dan pengabdian yang berkualitas dalam bidang MIPA untuk menghasilkan lulusan yang kompeten.</p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="about-icon">⭐</div>
+                    <h3>Keunggulan</h3>
+                    <p>Dilengkapi dengan laboratorium modern, dosen berkualifikasi tinggi, dan kerjasama dengan berbagai institusi nasional dan internasional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- PROGRAM STUDI SECTION -->
+    <section id="prodi">
+        <div class="container">
+            <h2>Program Studi</h2>
+            <p>FMIPA Untan menawarkan 9 program studi berkualitas yang dirancang untuk mempersiapkan mahasiswa menghadapi tantangan dunia kerja dan penelitian.</p>
+            
+            <div class="prodi-grid">
+                <div class="prodi-card">
+                    <h3>Biologi</h3>
+                    <p>Mempelajari kehidupan organisme dan ekosistem dengan fokus pada biodiversitas tropis Kalimantan.</p>
+                </div>
+                
+                <div class="prodi-card">
+                    <h3>Ilmu Kelautan</h3>
+                    <p>Mengkaji sumber daya laut, ekosistem pesisir, dan pengelolaan lingkungan maritim berkelanjutan.</p>
+                </div>
+                
+                <div class="prodi-card">
+                    <h3>Kimia</h3>
+                    <p>Mendalami sifat, struktur, dan transformasi materi untuk aplikasi industri dan penelitian.</p>
+                </div>
+                
+                <div class="prodi-card">
+                    <h3>Sistem Informasi</h3>
+                    <p>Mengintegrasikan teknologi informasi dengan proses bisnis untuk solusi sistem yang efektif.</p>
+                </div>
+                
+                <div class="prodi-card">
+                    <h3>Sistem Komputer</h3>
+                    <p>Mempelajari arsitektur komputer, jaringan, dan embedded system untuk teknologi masa depan.</p>
+                </div>
+                
+                <div class="prodi-card">
+                    <h3>Fisika</h3>
+                    <p>Mengeksplorasi fenomena alam dari skala kuantum hingga kosmik dengan pendekatan eksperimental.</p>
+                </div>
+                
+                <div class="prodi-card">
+                    <h3>Geofisika</h3>
+                    <p>Meneliti struktur bumi, mitigasi bencana, dan eksplorasi sumber daya alam menggunakan metode fisika.</p>
+                </div>
+                
+                <div class="prodi-card">
+                    <h3>Matematika</h3>
+                    <p>Mengembangkan kemampuan analisis, pemodelan, dan pemecahan masalah menggunakan matematika terapan.</p>
+                </div>
+                
+                <div class="prodi-card">
+                    <h3>Statistika</h3>
+                    <p>Menguasai teknik pengumpulan, analisis, dan interpretasi data untuk pengambilan keputusan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- KONTAK SECTION -->
+    <section id="kontak">
+        <div class="container">
+            <h2>Hubungi Kami</h2>
+            <p>Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan tentang program studi, pendaftaran, atau informasi lainnya.</p>
+            
+            <div class="kontak-info">
+                <div class="kontak-card">
+                    <div class="kontak-icon">📧</div>
+                    <h3>Email</h3>
+                    <a href="mailto:fmipa@untan.ac.id">fmipa@untan.ac.id</a>
+                </div>
+                
+                <div class="kontak-card">
+                    <div class="kontak-icon">☎️</div>
+                    <h3>Telepon</h3>
+                    <a href="tel:+62561583865">(0561) 583865</a>
+                </div>
+                
+                <div class="kontak-card">
+                    <div class="kontak-icon">📍</div>
+                    <h3>Alamat</h3>
+                    <p>Jl. Prof. Dr. H. Hadari Nawawi<br>Pontianak, Kalimantan Barat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 FMIPA Universitas Tanjungpura. All Rights Reserved.</p>
+        <p>Fakultas Matematika dan Ilmu Pengetahuan Alam</p>
+    </footer>
+</body>
+</html>
