@@ -12,403 +12,493 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #2c3e50;
+            background-color: #ffffff;
         }
         
         /* HEADER & NAVIGATION */
-        header { /* wadah header */
-            background: linear-gradient(135deg, #FFC107 0%, #FFD54F 100%);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .header-top {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 8px 0;
+            font-size: 0.85em;
+        }
+        
+        .header-top .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
         
-        .header-top { /* bar atas header */
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            font-size: 0.9em;
+        nav {
+            padding: 20px 0;
         }
         
-        .header-top .container { /* wadah konten header atas */
+        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
-        nav { /* navigasi utama */
-            padding: 15px 0;
-        }
-        
-        .nav-container { /* wadah logo dan menu */
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo-section { /* bagian logo dan teks */
+        .logo-section {
             display: flex;
             align-items: center;
             gap: 15px;
         }
         
-        .logo { /* wadah logo / bulatan putih */
-            width: 70px; 
-            height: 70px;
+        .logo {
+            width: 55px; 
+            height: 55px;
             background: white;
-            border-radius: 50%; 
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             overflow: hidden;
-            padding: 8px;
+            padding: 6px;
+            border: 1px solid #e0e0e0;
         }
         
-        .logo img { /* gambar logo */
-            width: 100%; /*supaya logo responsive*/
-            height: 100%; /*supaya logo responsive*/
-            object-fit: contain; /*supaya letak logo pas*/
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         
-        .logo-text h1 { /* teks di samping logo */
-            font-size: 1.5em;
-            color: #333;
+        .logo-text h1 {
+            font-size: 1.3em;
+            color: #1a1a1a;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
         
-        .logo-text p { /* subteks di samping logo */
-            font-size: 0.8em;
-            color: #555;
+        .logo-text p {
+            font-size: 0.75em;
+            color: #666;
+            font-weight: 400;
         }
         
-        .nav-menu { /* menu navigasi */
+        .nav-menu {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 35px;
             align-items: center;
         }
         
-        .nav-menu a { /* tautan menu navigasi */
+        .nav-menu a {
             text-decoration: none;
-            color: #333;
-            font-weight: 600;
-            transition: color 0.3s;
-            padding: 8px 15px;
-            border-radius: 5px;
-        }
-        
-        .nav-menu a:hover { /* efek hover menu navigasi */
-            background-color: rgba(255, 193, 7, 0.3);
-            color: #000;
-        }
-        
-        /* DROPDOWN MENU */
-        .dropdown { /* wadah dropdown */
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: color 0.2s;
+            padding: 8px 0;
             position: relative;
         }
         
-        .dropdown-content { /* isi dropdown */
+        .nav-menu a:hover {
+            color: #FFC107;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FFC107;
+            transition: width 0.3s;
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        /* DROPDOWN MENU */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
             display: none;
             position: absolute;
             background-color: white;
-            min-width: 250px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            border-radius: 5px;
+            min-width: 240px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
             top: 100%;
             left: 0;
             z-index: 1;
-            margin-top: 5px;
+            margin-top: 10px;
+            padding: 10px 0;
         }
         
-        .dropdown-content a { /* tautan dalam dropdown */
-            color: #333;
-            padding: 12px 20px;
+        .dropdown-content a {
+            color: #2c3e50;
+            padding: 12px 24px;
             display: block;
-            border-radius: 0;
+            font-size: 0.9em;
+            transition: all 0.2s;
         }
         
-        .dropdown-content a:hover { /* efek hover tautan dropdown */
+        .dropdown-content a::after {
+            display: none;
+        }
+        
+        .dropdown-content a:hover {
             background-color: #FFF9E6;
-            color: #333;
+            color: #FFC107;
+            padding-left: 28px;
         }
         
-        .dropdown:hover .dropdown-content { /* tampilkan dropdown saat hover */
+        .dropdown:hover .dropdown-content {
             display: block;
         }
         
         /* HERO SECTION */
-        .hero { /* bagian hero */
-            background: linear-gradient(135deg, rgba(255, 193, 7, 0.85) 0%, rgba(255, 213, 79, 0.85) 100%),
+        .hero {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.9) 0%, rgba(255, 160, 0, 0.85) 6%),
                         url('fmipa.jpg') center/cover no-repeat;
             color: white;
-            padding: 100px 20px;
-            text-align: center;
+            padding: 120px 40px 100px;
+            text-align: left;
             position: relative;
         }
         
-        .hero::before { /* overlay gelap pada hero */
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
         
-        .hero h2, /* untuk teks di hero */
-        .hero p, /* untuk paragraf di hero */
-        .hero .btn-primary {
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
             position: relative;
             z-index: 2;
         }
         
-        .hero h2 { /* judul di hero */
-            font-size: 2.5em;
+        .hero h2 {
+            font-size: 3em;
             margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -1px;
         }
         
-        .hero p { /* paragraf di hero */
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto 30px;
+        .hero p {
+            font-size: 1.15em;
+            max-width: 700px;
+            margin: 0 0 35px;
+            line-height: 1.7;
+            font-weight: 300;
         }
         
-        .btn-primary { /* tombol utama */
-            background-color: #FFC107;
-            color: #333;
-            padding: 15px 40px;
+        .btn-primary {
+            background-color: white;
+            color: #FFA000;
+            padding: 14px 35px;
             text-decoration: none;
-            border-radius: 30px;
-            font-weight: bold;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95em;
             display: inline-block;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
-        .btn-primary:hover { /* efek hover tombol utama */
-            background-color: #FFD54F;
+        .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.6);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background-color: #FFC107;
+            color: white;
         }
         
         /* SECTIONS */
-        .container { /* wadah umum untuk sections */
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
         
-        section { /* setiap section */
-            padding: 80px 20px;
+        section {
+            padding: 80px 40px;
         }
         
-        section h2 { /* judul section */
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #333;
+        section h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
         
-        section p { /* paragraf section */
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 50px;
-            font-size: 1.1em;
+        section p.section-subtitle {
+            font-size: 1.05em;
+            max-width: 750px;
+            margin: 0 0 60px;
             color: #666;
+            line-height: 1.7;
         }
         
         /* TENTANG SECTION */
-        #tentang { /* bagian tentang fakultas */
-            background-color: #ffffff;
+        #tentang {
+            background-color: #fafafa;
         }
         
-        .about-content { /* wadah konten tentang */
+        .about-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
         
-        .about-card { /* kartu tentang */
-            background: rgba(255, 249, 196, 0.3);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s;
+        .about-card {
+            background: white;
+            padding: 40px 35px;
+            border-radius: 12px;
+            border: 1px solid #e8e8e8;
+            transition: all 0.3s;
         }
         
-        .about-card:hover { /* efek hover kartu tentang */
+        .about-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-color: #FFC107;
         }
         
-        .about-card h3 { /* judul kartu tentang */
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.5em;
+        .about-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 18px;
+            font-size: 1.4em;
+            font-weight: 600;
         }
         
-        .about-icon { /* ikon di kartu tentang */
-            width: 80px;
-            height: 80px;
+        .about-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+        
+        .about-icon {
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, #FFC107, #FFD54F);
-            border-radius: 50%;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2em;
-            font-weight: bold;
+            margin: 0 0 25px;
+            font-size: 1.6em;
+            font-weight: 700;
             color: white;
         }
         
         /* PROGRAM STUDI SECTION */
-        #prodi { /* bagian program studi */
-            background: linear-gradient(135deg, #FFF9C4 0%, #FFF59D 100%);
-        }
-        
-        .prodi-grid { /* wadah grid program studi */
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-        
-        .prodi-card { /* kartu program studi */
+        #prodi {
             background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-left: 5px solid #FFC107;
+        }
+        
+        .prodi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .prodi-card {
+            background: #fafafa;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e8e8e8;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
         
-        .prodi-card:hover { /* efek hover kartu program studi */
+        .prodi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: #FFC107;
+            transition: height 0.3s;
+        }
+        
+        .prodi-card:hover::before {
+            height: 100%;
+        }
+        
+        .prodi-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
-            border-left-width: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            background: white;
         }
         
-        .prodi-card h3 { /* judul kartu program studi */
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 1.3em;
+        .prodi-card h3 {
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            font-size: 1.25em;
+            font-weight: 600;
         }
         
-        .prodi-card p { /* paragraf kartu program studi */
-            text-align: left;
-            margin: 0;
-            font-size: 0.95em;
+        .prodi-card p {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.6;
         }
         
         /* KONTAK SECTION */
-        #kontak { /* bagian kontak */
-            background: linear-gradient(135deg, #333 0%, #444 100%);
+        #kontak {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
             color: white;
         }
         
-        #kontak h2 { /* judul kontak */
-            color: #FFC107;
-        }
-        
-        #kontak p { /* paragraf kontak */ 
+        #kontak h2 {
             color: white;
         }
         
-        .kontak-info { /* wadah info kontak */
+        #kontak p.section-subtitle {
+            color: #ddd;
+        }
+        
+        .kontak-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
+            gap: 30px;
+            margin-top: 50px;
         }
         
-        .kontak-card { /* kartu kontak */
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 193, 7, 0.3);
+        .kontak-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
         }
         
-        .kontak-icon { /* ikon di kartu kontak */
-            width: 70px;
-            height: 70px;
+        .kontak-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #FFC107;
+            transform: translateY(-5px);
+        }
+        
+        .kontak-icon {
+            width: 55px;
+            height: 55px;
             background: #FFC107;
-            border-radius: 50%;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #333;
+            margin: 0 0 20px;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #1a1a1a;
         }
         
-        .kontak-card h3 { /* judul kartu kontak */
-            color: #FFC107;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
-        
-        .kontak-card a { /* tautan di kartu kontak */
+        .kontak-card h3 {
             color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: color 0.3s;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
         }
         
-        .kontak-card a:hover { /* efek hover tautan kartu kontak */
+        .kontak-card a {
             color: #FFC107;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.2s;
+        }
+        
+        .kontak-card a:hover {
+            color: #FFD54F;
+        }
+        
+        .kontak-card p {
+            color: #ddd;
+            font-size: 0.95em;
+            line-height: 1.6;
         }
         
         /* FOOTER */
-        footer { /* bagian footer */ 
-            background-color: #222;
-            color: white;
+        footer {
+            background-color: #0d0d0d;
+            color: #999;
             text-align: center;
-            padding: 30px 20px;
+            padding: 30px 40px;
         }
         
-        footer p { /* paragraf footer */
+        footer p {
             margin: 5px 0;
-            color: white;
+            font-size: 0.9em;
         }
         
         /* RESPONSIVE */
-        @media (max-width: 768px) { /* untuk layar kecil */
+        @media (max-width: 768px) {
+            .nav-container,
+            .container,
+            .header-top .container {
+                padding: 0 20px;
+            }
+            
             .nav-menu { 
                 flex-direction: column;
                 gap: 10px;
+                align-items: flex-start;
+            }
+            
+            .hero {
+                padding: 80px 20px 60px;
             }
             
             .hero h2 {
                 font-size: 2em;
             }
             
+            section {
+                padding: 60px 20px;
+            }
+            
             section h2 {
-                font-size: 2em;
+                font-size: 1.8em;
             }
             
             .logo-text h1 {
-                font-size: 1.2em;
+                font-size: 1.1em;
             }
             
             .logo {
-                width: 60px;
-                height: 60px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .about-content,
+            .prodi-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -460,18 +550,18 @@
     
     <!-- HERO SECTION -->
     <section class="hero">
-        <h2>Selamat Datang di FMIPA Untan</h2>
-        <p>Fakultas Matematika dan Ilmu Pengetahuan Alam Universitas Tanjungpura - Membangun generasi unggul dalam sains dan teknologi untuk masa depan Indonesia</p>
-        <a href="#tentang" class="btn-primary">Jelajahi Lebih Lanjut</a>
+        <div class="hero-content">
+            <h2>Selamat Datang di FMIPA Untan</h2>
+            <p>Fakultas Matematika dan Ilmu Pengetahuan Alam Universitas Tanjungpura - Membangun generasi unggul dalam sains dan teknologi untuk masa depan Indonesia</p>
+            <a href="#tentang" class="btn-primary">Jelajahi Lebih Lanjut</a>
+        </div>
     </section>
-    
-    
     
     <!-- TENTANG FAKULTAS SECTION -->
     <section id="tentang">   
         <div class="container">
             <h2>Tentang Fakultas</h2>
-            <p>FMIPA Untan merupakan fakultas yang berdedikasi dalam mengembangkan ilmu pengetahuan alam dan matematika dengan fokus pada penelitian, pengajaran, dan pengabdian masyarakat.</p>
+            <p class="section-subtitle">FMIPA Untan merupakan fakultas yang berdedikasi dalam mengembangkan ilmu pengetahuan alam dan matematika dengan fokus pada penelitian, pengajaran, dan pengabdian masyarakat.</p>
             
             <div class="about-content">
                 <div class="about-card">
@@ -499,7 +589,7 @@
     <section id="prodi">
         <div class="container">
             <h2>Program Studi</h2>
-            <p>FMIPA Untan menawarkan 9 program studi berkualitas yang dirancang untuk mempersiapkan mahasiswa menghadapi tantangan dunia kerja dan penelitian.</p>
+            <p class="section-subtitle">FMIPA Untan menawarkan 9 program studi berkualitas yang dirancang untuk mempersiapkan mahasiswa menghadapi tantangan dunia kerja dan penelitian.</p>
             
             <div class="prodi-grid">
                 <div class="prodi-card">
@@ -554,7 +644,7 @@
     <section id="kontak">
         <div class="container">
             <h2>Hubungi Kami</h2>
-            <p>Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan tentang program studi, pendaftaran, atau informasi lainnya.</p>
+            <p class="section-subtitle">Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan tentang program studi, pendaftaran, atau informasi lainnya.</p>
             
             <div class="kontak-info">
                 <div class="kontak-card">
@@ -570,7 +660,7 @@
                 </div>
                 
                 <div class="kontak-card">
-                    <div class="kontak-icon">📍</div>
+                    <div class="kontak-icon">⌘</div>
                     <h3>Alamat</h3>
                     <p>Jl. Prof. Dr. H. Hadari Nawawi<br>Pontianak, Kalimantan Barat</p>
                 </div>
